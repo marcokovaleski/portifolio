@@ -1,2 +1,2 @@
-# lp_portifolio
+# portifolio
 portfolio for an architecture

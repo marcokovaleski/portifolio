@@ -11,6 +11,7 @@ import HomeIcon from "../assets/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
 import MenuIcon from "../assets/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
 import SearchIcon from "../assets/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
 import "../styles/solution.css"
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -21,6 +22,8 @@ export default function Home() {
       html.style.overflow = showMobileMenu ? "hidden" : "auto";
     }
   }, [showMobileMenu]);
+
+  const handleMenuClick = () => setShowMobileMenu(false);
 
   return (
     <>
@@ -53,38 +56,37 @@ export default function Home() {
             </div>
           </div>
           <div className="mobile-menu">
-            {showMobileMenu ?
+            {showMobileMenu ? (
               <div className="mobile-menu-content">
                 <div className="container flex">
                   <ul>
                     <li>
-                      <a href="#">Home</a>
+                      <a onClick={handleMenuClick} href="#">Home</a>
                     </li>
                     <li>
-                      <a href="#solution">Soluções</a>
+                      <a onClick={handleMenuClick} href="#solution">Soluções</a>
                     </li>
                     <li>
-                      <a href="#testimonials">Depoimentos</a>
+                      <a onClick={handleMenuClick} href="#testimonials">Depoimentos</a>
                     </li>
                     <li>
-                      <a href="#pricing">Preços</a>
+                      <a onClick={handleMenuClick} href="#pricing">Preços</a>
                     </li>
                     <li>
-                      <a href="#contact">Contato</a>
+                      <a onClick={handleMenuClick} href="#contact">Contato</a>
                     </li>
                   </ul>
-                  <span onClick={() => setShowMobileMenu(!showMobileMenu)} className="btn-wrapper">
+                  <span onClick={() => setShowMobileMenu(false)} className="btn-wrapper">
                     <AiOutlineClose size={24} /> {/* Ícone de fechar */}
                   </span>
                 </div>
               </div>
-              :
-              <span onClick={() => setShowMobileMenu(!showMobileMenu)} className="btn-wrapper" >
+            ) : (
+              <span onClick={() => setShowMobileMenu(true)} className="btn-wrapper" >
                 <AiOutlineMenu size={24} /> {/* Ícone de menu */}
               </span>
-            }
+            )}
           </div>
-
         </nav>
       </header>
 
@@ -122,48 +124,24 @@ export default function Home() {
           </p>
         </header>
         <section className="even-columns">
-          <div className="card">
-            <span>
-              <img src={HomeIcon} alt="ícone campeão" width={64} height={64} />
-            </span>
-            <div>
-              <h3>
-                Produto Vencedor
-              </h3>
-              <p>
-                Lorem ipsum dolor sit <strong>  amet consectetur adipisicing elit. </strong> Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!
-              </p>
-              <hr />
-            </div>
-          </div>
-          <div className="card">
-            <span>
-              <img src={MenuIcon} alt="ícone campeão" width={64} height={64} />
-            </span>
-            <div>
-              <h3>
-                Produto Vencedor
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!
-              </p>
-              <hr />
-            </div>
-          </div>
-          <div className="card">
-            <span>
-              <img src={SearchIcon} alt="ícone campeão" width={64} height={64} />
-            </span>
-            <div>
-              <h3>
-                Produto Vencedor
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!
-              </p>
-              <hr />
-            </div>
-          </div>
+          <ProjectCard
+            icon={HomeIcon}
+            alt="ícone campeão"
+            title="Produto Vencedor"
+            description="Lorem ipsum dolor sit <strong> amet consectetur adipisicing elit. </strong> Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+          />
+          <ProjectCard
+            icon={MenuIcon}
+            alt="ícone menu"
+            title="Produto Vencedor"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+          />
+          <ProjectCard
+            icon={SearchIcon}
+            alt="ícone busca"
+            title="Produto Vencedor"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+          />
         </section>
       </section>
     </>

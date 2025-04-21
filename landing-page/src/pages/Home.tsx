@@ -7,9 +7,9 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import HeroRectangleOne from "../assets/rectangleOne.png";
 import HeroRectangleTwo from "../assets/rectangleTwo.png";
 import "../styles/hero.css";
-import HomeIcon from "../assets/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
-import MenuIcon from "../assets/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
-import SearchIcon from "../assets/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+import Pallet from "../assets/palette.svg"
+import School from "../assets/school.svg"
+import HolidayVillage from "../assets/holiday_village.svg"
 import "../styles/solution.css"
 import ProjectCard from "../components/ProjectCard";
 
@@ -33,10 +33,10 @@ export default function Home() {
           <div className="desktop-only">
             <ul className="flex gap-1">
               <li>
-                <a href="#">Home</a>
+                <a href="#">Sobre</a>
               </li>
               <li>
-                <a href="#solution">Soluções</a>
+                <a href="#solution">Projetos Acadêmicos</a>
               </li>
               <li>
                 <a href="#testimonials">Depoimentos</a>
@@ -64,7 +64,7 @@ export default function Home() {
                       <a onClick={handleMenuClick} href="#">Home</a>
                     </li>
                     <li>
-                      <a onClick={handleMenuClick} href="#solution">Soluções</a>
+                      <a onClick={handleMenuClick} href="#solution">Projetos Acadêmicos</a>
                     </li>
                     <li>
                       <a onClick={handleMenuClick} href="#testimonials">Depoimentos</a>
@@ -96,11 +96,11 @@ export default function Home() {
         </span>
         <img src={HeroRectangleOne} alt="Retangulo dois tela inicial" />
         <div className="container content">
-          <p className="desktop-only">
-            Olá
-          </p>
-          <h1>seu projeto da forma mais bela</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus culpa aliquam facere voluptate maxime, cum neque. Nemo tempore maiores consectetur cupiditate veritatis! Excepturi eius, aliquam in culpa animi quidem ab?</p>
+          <p className="desktop-only">Sobre</p>
+          <h1>Isabela Pellegrini</h1>
+          <p>Sou Isabela Pellegrini, estudante de Arquitetura e Urbanismo, apaixonada por criar espaços que inspirem, acolham e facilitem a vida das pessoas. Atualmente no 5º período na UNIPAR, venho trilhando meu caminho com dedicação, sensibilidade estética e vontade constante de aprender.</p>
+          <p>Com experiência prática em escritórios e imobiliária, desenvolvi olhar técnico e atenção aos detalhes, desde a documentação de obras até a modelagem 3D e os detalhamentos mais minuciosos de interiores. Acredito que arquitetura é equilíbrio entre beleza, função e emoção — e busco trazer isso para cada projeto que participo.</p>
+          <p>Sou comunicativa, comprometida e colaborativa, com domínio intermediário em AutoCAD e SketchUp, e em constante evolução no Revit e nas ferramentas de modelagem. A cada novo curso ou desafio, vejo a chance de transformar meu repertório em soluções criativas e funcionais.</p>
           <div className="flex gap-1">
             <span><Button text="Cadastre-se" /></span>
             <span className="desktop-only">
@@ -113,34 +113,32 @@ export default function Home() {
       <section className="container" id="solution">
         <header>
           <span>
-            <h2> Projetos </h2>
+            <h2>Projetos Acadêmicos</h2>
             <span className="desktop-only">
-              <h2>
-                seu projeto da forma mais bela
-              </h2>
+              <h2></h2>
             </span>
-          </span><p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto necessitatibus rerum neque, praesentium rem blanditiis nam saepe eius, cupiditate magnam dolorem debitis veritatis sunt? Fuga perferendis doloremque ipsam mollitia fugiat!
-          </p>
+          </span>
+          <p>Meus projetos nascem do encontro entre técnica e intuição. Valorizo ambientes que traduzam identidade, fluidez e bem-estar — seja em uma modelagem 3D de interiores ou no detalhamento dos sistemas de um espaço.</p>
+          <p>Mais do que desenhar, gosto de pensar em como as pessoas vão viver e sentir cada espaço.</p>
         </header>
         <section className="even-columns">
           <ProjectCard
-            icon={HomeIcon}
-            alt="ícone campeão"
-            title="Produto Vencedor"
-            description="Lorem ipsum dolor sit <strong> amet consectetur adipisicing elit. </strong> Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+            icon={Pallet}
+            alt="ícone galeria"
+            title="Galeria de Arte"
+            description="Projeto academico em fase de estudo preliminar elaborado em equipe para atender as necessidades de uma galeria de arte com setor educativo integrado; 2024"
           />
           <ProjectCard
-            icon={MenuIcon}
-            alt="ícone menu"
-            title="Produto Vencedor"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+            icon={School}
+            alt="ícone faculdade"
+            title="Faculdade de Arquitetura"
+            description="Projeto acadêmico em fase de estudo preliminar de uma faculdade voltada unicamente ao curso de Arquitetura e Urbanismo, com objetivo de proporcionar um espaço inspirador e acolhedor para os estudantes, bem como todos os ambientes necessários para exercício de suas atividades. Em dupla, 2024"
           />
           <ProjectCard
-            icon={SearchIcon}
-            alt="ícone busca"
-            title="Produto Vencedor"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor itaque voluptatem eveniet, aliquid totam architecto molestiae sed mollitia? Odio doloremque assumenda rem numquam sint, error quia iste culpa ipsum tempora!"
+            icon={HolidayVillage}
+            alt="ícone residencial"
+            title="Residencial Magnólia"
+            description="Projeto acadêmico em fase de estudo preliminar de um conjunto habitacional de interesse social, idealizado com o propósito de atender à demanda por habitação de qualidade voltada a famílias de diferentes composições e perfis socioeconômicos. Como empreendimento de Interesse Social, o projeto visa garantir o acesso à moradia digna, com infraestrutura completa, promovendo inclusão urbana, equidade e bem estar coletivo. 2025"
           />
         </section>
       </section>

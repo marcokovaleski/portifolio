@@ -12,6 +12,13 @@ import School from "../assets/school.svg"
 import HolidayVillage from "../assets/holiday_village.svg"
 import "../styles/solution.css"
 import ProjectCard from "../components/ProjectCard";
+import "../styles/testimonials.css"
+import Star from "../assets/icn bxs-star.svg";
+import StarOuter from "../assets/icn bx-star.svg"
+import CarouselCard from "../components/CarouselCard";
+import ProfileImageOne from "../assets/profileImageOne.svg";
+import ProfileImageTwo from "../assets/profileImageTwo.svg";
+import ProfileImageTree from "../assets/profileImageTree.svg";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -98,9 +105,9 @@ export default function Home() {
         <div className="container content">
           <p className="desktop-only">Sobre</p>
           <h1>Isabela Pellegrini</h1>
-          <p>Sou Isabela Pellegrini, estudante de Arquitetura e Urbanismo, apaixonada por criar espaços que inspirem, acolham e facilitem a vida das pessoas. Atualmente no 5º período na UNIPAR, venho trilhando meu caminho com dedicação, sensibilidade estética e vontade constante de aprender.</p>
-          <p>Com experiência prática em escritórios e imobiliária, desenvolvi olhar técnico e atenção aos detalhes, desde a documentação de obras até a modelagem 3D e os detalhamentos mais minuciosos de interiores. Acredito que arquitetura é equilíbrio entre beleza, função e emoção — e busco trazer isso para cada projeto que participo.</p>
-          <p>Sou comunicativa, comprometida e colaborativa, com domínio intermediário em AutoCAD e SketchUp, e em constante evolução no Revit e nas ferramentas de modelagem. A cada novo curso ou desafio, vejo a chance de transformar meu repertório em soluções criativas e funcionais.</p>
+          <p>Sou Isabela Pellegrini, estudante de Arquitetura e Urbanismo na UNIPAR. No 5º período, sou movida pela paixão em criar espaços que acolham, inspirem e facilitem o dia a dia, sempre com sensibilidade estética e vontade de aprender.</p>
+          <p>Com experiência em escritórios e imobiliária, desenvolvi olhar técnico e atenção aos detalhes — da documentação de obras à modelagem 3D e interiores. Acredito na arquitetura como equilíbrio entre beleza, função e emoção.</p>
+          <p>Sou comunicativa, dedicada e colaborativa. Tenho domínio intermediário em AutoCAD e SketchUp, e sigo evoluindo no Revit e outras ferramentas, buscando sempre soluções criativas e funcionais.</p>
           <div className="flex gap-1">
             <span><Button text="Cadastre-se" /></span>
             <span className="desktop-only">
@@ -115,31 +122,110 @@ export default function Home() {
           <span>
             <h2>Projetos Acadêmicos</h2>
             <span className="desktop-only">
-              <h2></h2>
             </span>
           </span>
-          <p>Meus projetos nascem do encontro entre técnica e intuição. Valorizo ambientes que traduzam identidade, fluidez e bem-estar — seja em uma modelagem 3D de interiores ou no detalhamento dos sistemas de um espaço.</p>
-          <p>Mais do que desenhar, gosto de pensar em como as pessoas vão viver e sentir cada espaço.</p>
+          <p>Meus projetos unem técnica e intuição, valorizando ambientes com identidade, fluidez e bem-estar. Mais do que desenhar, penso em como as pessoas vão viver e sentir cada espaço.</p>
         </header>
         <section className="even-columns">
           <ProjectCard
             icon={Pallet}
             alt="ícone galeria"
             title="Galeria de Arte"
-            description="Projeto academico em fase de estudo preliminar elaborado em equipe para atender as necessidades de uma galeria de arte com setor educativo integrado; 2024"
+            description="Projeto acadêmico em estudo preliminar, desenvolvido em equipe para uma galeria de arte com setor educativo integrado — 2024."
           />
           <ProjectCard
             icon={School}
             alt="ícone faculdade"
             title="Faculdade de Arquitetura"
-            description="Projeto acadêmico em fase de estudo preliminar de uma faculdade voltada unicamente ao curso de Arquitetura e Urbanismo, com objetivo de proporcionar um espaço inspirador e acolhedor para os estudantes, bem como todos os ambientes necessários para exercício de suas atividades. Em dupla, 2024"
+            description="Estudo preliminar de uma faculdade voltada ao curso de Arquitetura e Urbanismo, com foco em criar um espaço inspirador, acolhedor e funcional para estudantes — 2024."
           />
           <ProjectCard
             icon={HolidayVillage}
             alt="ícone residencial"
             title="Residencial Magnólia"
-            description="Projeto acadêmico em fase de estudo preliminar de um conjunto habitacional de interesse social, idealizado com o propósito de atender à demanda por habitação de qualidade voltada a famílias de diferentes composições e perfis socioeconômicos. Como empreendimento de Interesse Social, o projeto visa garantir o acesso à moradia digna, com infraestrutura completa, promovendo inclusão urbana, equidade e bem estar coletivo. 2025"
+            description="Estudo preliminar de um conjunto habitacional social, focado em oferecer moradia digna e infraestrutura completa para famílias variadas, promovendo inclusão e bem-estar coletivo — 2025."
           />
+        </section>
+      </section>
+
+      <section id="testimonials">
+        <header>
+          <span>
+            <p className="desktop-only">
+              Conselho de quem conhece
+            </p>
+            <h2>Cada cliente importa!</h2>
+          </span>
+          <p>
+            Quem já pediu sabe da qualidade das nossas receitas, estamos tirando aquela ideia de que
+            comida congelada tem de ser algo sem gosto, acompanhe abaixo os testemunhos de quem já comprou e aprovou.
+          </p>
+        </header>
+        <section className="carousel">
+          <div className="carousel-content">
+            <CarouselCard
+              image={ProfileImageOne}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+            <CarouselCard
+              image={ProfileImageTwo}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+            <CarouselCard
+              image={ProfileImageTree}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+          </div>
+          <div className="carousel-content">
+            <CarouselCard
+              image={ProfileImageOne}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+            <CarouselCard
+              image={ProfileImageTwo}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+            <CarouselCard
+              image={ProfileImageTree}
+              alt="Imagem perfil cliente"
+              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              rating={4}
+              name="Ellon Ma"
+              title="CEO BING CHILLING"
+              star={Star}
+              starOuter={StarOuter}
+            />
+          </div>
         </section>
       </section>
     </>

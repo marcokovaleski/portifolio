@@ -1,14 +1,14 @@
-import "../styles/buttons.css"
+import "../styles/buttons.css";
 
 interface IButtonProps {
-    text: string;
-    secondary?: boolean;
+  text: string;
+  secondary?: boolean;
 }
 
 export default function Button({ text, secondary }: IButtonProps) {
-    return (
-        <button className={secondary ? "btn-secondary" : "btn-primary"}>
-            {text}
-        </button>
-    )
-}   
+  return (
+    <button className={secondary ? "btn-secondary" : "btn-primary"}>
+      {text}
+    </button>
+  );
+}

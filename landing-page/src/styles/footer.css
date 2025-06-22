@@ -1,0 +1,69 @@
+.footer {
+  background-color: var(--bg-color);
+  border-top: 1px solid #eaeaea;
+  padding: var(--py-xl) 0 var(--py-base);
+  text-align: center;
+  color: var(--second-text-color);
+  font-size: var(--fs-sm);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: left;
+  margin-bottom: var(--py-base);
+}
+
+.footer-brand h3 {
+  font-size: var(--fs-lg);
+  color: var(--text-color);
+  margin-bottom: var(--py-sm);
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icons svg {
+  color: #1da1f2;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.social-icons svg:hover {
+  transform: scale(1.1);
+}
+
+.footer-column h4 {
+  color: var(--text-color);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--second-text-color);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  background-color: var(--light-gray);
+  padding: var(--py-sm) 0;
+  font-weight: var(--fw-md);
+}

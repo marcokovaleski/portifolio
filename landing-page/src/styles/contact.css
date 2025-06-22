@@ -1,0 +1,63 @@
+.contact-section {
+  padding: var(--py-xl) 0;
+  text-align: center;
+}
+
+.contact-header {
+  margin-bottom: var(--py-lg);
+}
+
+.contact-subtitle {
+  color: var(--primary-color);
+  font-weight: var(--fw-md);
+  font-size: var(--fs-sm);
+}
+
+.contact-title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--py-sm);
+}
+
+.contact-description {
+  color: var(--second-text-color);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--py-base);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-input,
+.contact-textarea {
+  padding: var(--py-base);
+  border: none;
+  border-radius: 8px;
+  background-color: var(--light-gray);
+  font-size: var(--fs-base);
+  color: var(--text-color);
+  font-family: var(--ff-sans);
+  width: 100%;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: var(--second-text-color);
+}
+
+.contact-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contact-form button {
+  width: fit-content;
+  margin: 0 auto;
+}

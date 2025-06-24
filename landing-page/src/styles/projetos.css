@@ -1,4 +1,7 @@
-#solution {
+/* Versão corrigida para o arquivo projetos.css */
+
+/* ALTERADO: Todos os seletores '#solution' foram atualizados para '#projetos' */
+#projetos {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,23 +9,23 @@
   gap: 5.75rem;
 }
 
-#solution header {
+#projetos header {
   display: grid;
   gap: 1.5rem;
   text-align: center;
   max-width: 33rem;
 }
 
-#solution p {
+#projetos p {
   color: var(--second-text-color);
 }
 
-#solution strong {
+#projetos strong {
   color: var(--primary-color);
   font-weight: var(--fw-bold);
 }
 
-#solution .even-columns {
+#projetos .even-columns {
   gap: 2rem;
 }
 
@@ -36,20 +39,20 @@
   flex-direction: column;
   align-items: center;
   border-radius: 6px;
+}
 
-  span {
-    display: flex;
-    min-height: 8rem;
-    align-items: end;
-  }
+.card span {
+  display: flex;
+  min-height: 8rem;
+  align-items: end;
+}
 
-  div {
-    height: 100%;
-    gap: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-  }
+.card div {
+  height: 100%;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .card h3 {
@@ -69,12 +72,13 @@
 }
 
 @media (width > 1280px) {
-  #solution {
+  #projetos {
     padding-block: 7.5rem;
   }
 
-  #solution header > span > h2 {
-    font-size: var(--fs-sm);
+  /* ALTERADO: Seletor atualizado */
+  #projetos header > span > h2 {
+    font-size: var(--fs-3xl);
     color: var(--primary-color);
   }
 }

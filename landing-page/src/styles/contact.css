@@ -1,3 +1,5 @@
+/* Este é o conteúdo correto que deve estar no seu arquivo contact.css */
+
 .contact-section {
   padding: var(--py-xl) 0;
   text-align: center;
@@ -9,7 +11,9 @@
 
 .contact-subtitle {
   color: var(--primary-color);
-  font-weight: var(--fw-md);
+  font-weight: var(
+    --fw-bold
+  ); /* ALTERADO: Deixa a fonte mais forte e consistente. */
   font-size: var(--fs-sm);
 }
 

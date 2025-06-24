@@ -1,29 +1,37 @@
 import { useEffect, useState } from "react";
-import Logo from "../assets/Untitled.svg";
-import "../styles/header.css";
-import "../styles/utility.css";
+// Componentes e Ícones
 import Button from "../components/Button";
+import ProjectCard from "../components/ProjectCard";
+import CarouselCard from "../components/CarouselCard";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaInstagram } from "react-icons/fa";
+
+// Assets (Imagens e SVGs)
+import Logo from "../assets/Untitled.svg";
 import HeroRectangleOne from "../assets/rectangleOne.png";
 import HeroRectangleTwo from "../assets/rectangleTwo.png";
-import "../styles/hero.css";
 import Pallet from "../assets/palette.svg";
 import School from "../assets/school.svg";
 import HolidayVillage from "../assets/holiday_village.svg";
-import "../styles/solution.css";
-import ProjectCard from "../components/ProjectCard";
-import "../styles/testimonials.css";
-import Star from "../assets/icn bxs-star.svg";
-import StarOuter from "../assets/icn bx-star.svg";
-import CarouselCard from "../components/CarouselCard";
-import ProfileImageOne from "../assets/profileImageOne.svg";
-import ProfileImageTwo from "../assets/profileImageTwo.svg";
-import ProfileImageTree from "../assets/profileImageTree.svg";
-import Check from "../assets/check.svg";
-import "../styles/pricing.css";
+import IconRevit from "../assets/IconRevit.svg";
+import IconAutoCAD from "../assets/IconAutoCAD.svg";
+import IconSketchUp from "../assets/IconSketchUp.svg";
+
+// Estilos
+import "../styles/header.css";
+import "../styles/hero.css";
 import "../styles/contact.css";
-import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import "../styles/footer.css";
+import "../styles/utility.css";
+// ALTERADO: Nomes dos arquivos CSS para maior clareza
+import "../styles/projetos.css"; // Antigo solution.css
+import "../styles/habilidades.css"; // Antigo testimonials.css
+
+// REMOVIDO: Imports não utilizados que eram da seção de preços e estrelas
+// import Star from "../assets/icn bxs-star.svg";
+// import StarOuter from "../assets/icn bx-star.svg";
+// import Check from "../assets/check.svg";
+// import "../styles/pricing.css";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -47,12 +55,13 @@ export default function Home() {
     setFeedback(null);
 
     try {
+      // IMPORTANTE: Veja a nota sobre segurança no final da resposta
       const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjc3NGJkODcyOWVhMzhlOWMyZmUwYzY0ZDJjYTk0OGJmNjZmMGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6InJSZlBFeWx4bEJscEtEQWVmb3Z3MVEiLCJuYmYiOjE3NTA2MTI5NjIsImlhdCI6MTc1MDYxMzI2MiwiZXhwIjoxNzUwNjE2ODYyLCJqdGkiOiIwMDAyNDlmYmY3OGMxZTcyZmFjYzQwNmFmZDc4YjA4N2I4ZGM2YTE2In0.mk8Bg-8_aoHFy_PKu6LMNBbbCJUOfUKLyJDxa5Ef3K7yNNwJudJ-b1MkUxoFrZP2go7j_G8Fop8piVkdcAFN8VG5OF5PqSmUUv8i2R6_0XHEhj2MZsRjt_rHkYMX4Pv8eOPCsoVdTn-JU9wOGCzZTDzucAol4iMjO5bdUvgezRNPdpKSsxKoihRV2fCzVw9D4EAy_kf2y7EtiGZ9ZDtqAqXlsFM0e8pRLLolSG3JZ9SWQkGn4iPK8cxtnP0KZy9UnSoK_oSTJez55fYTFtXBlCiGsR0yWWOrNugORb0yQeWCjEVb3RHDbykIhF13K3fO5aRVrO50CrcQGPBujnw-Ug", // se aplicável
+            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjc3NGJkODcyOWVhMzhlOWMyZmUwYzY0ZDJjYTk0OGJmNjZmMGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkdoRDE3UlNCdjBKR044dkdxS0ZBSXciLCJuYmYiOjE3NTA3MjgwMjQsImlhdCI6MTc1MDcyODMyNCwiZXhwIjoxNzUwNzMxOTI0LCJqdGkiOiJlMDRlZGM1MTczNTRlMDIwYzY5NWU1YTc0MDMwMDc5ZDRmNjc0MTU0In0.oVRen9jmeRmyPjR_dQBkW52Vw2xUCfKO5yv1We1zNJyXsxi170KYxf4wWe_AFQBhDlE1UcivwgqNR4xfi8FfMTGDDd9_Kkt6OAetVP8rWAL1nAJfy_Uw4M0qQNQp4YEpoTGUZBxfR8a-647KHzO7cdSe744vRVapKRhlnPNgS0mNkJVl78SKJnMGjAEQTtUJu3CT_ch2CMKttem3rEfJ7s_Dur3w9Y7EMQsijEzXVAhSR5t1WnzXhnyF7Ugq5H5NIMLKl0hwow1mnXFD8av0rRWxctYwQa93UyU4UxwD456kWXsgkk1zIzL9-b3nV4kMxRKVci24sZVdIonzYQAF4g",
         },
         body: JSON.stringify({
           toMail: email,
@@ -65,12 +74,12 @@ export default function Home() {
         throw new Error(errorText);
       }
 
-      setFeedback("E-mail enviado com sucesso!");
+      setFeedback("Mensagem enviada com sucesso.");
       setEmail("");
       setMensagem("");
     } catch (error: any) {
       console.error("Erro ao enviar:", error);
-      setFeedback("Erro ao enviar. Tente novamente mais tarde.");
+      setFeedback("Falha ao enviar. Tente novamente mais tarde.");
     } finally {
       setLoading(false);
     }
@@ -78,90 +87,77 @@ export default function Home() {
 
   return (
     <>
-      <header className="container py-sm">
-        <nav className="flex items-center justify-between">
-          <img
-            src={Logo}
-            alt="Logo IsabelaPellegrini"
-            width={220}
-            height={80}
-          />
-          <div className="desktop-only">
-            <ul className="flex gap-1">
-              <li>
-                <a href="#">Sobre</a>
-              </li>
-              <li>
-                <a href="#solution">Projetos Acadêmicos</a>
-              </li>
-              <li>
-                <a href="#testimonials">Depoimentos</a>
-              </li>
-              <li>
-                <a href="#pricing">Preços</a>
-              </li>
-              <li>
-                <a href="#contact">Contato</a>
-              </li>
-            </ul>
-          </div>
-          <div className="desktop-only">
-            <div className="flex items-center">
-              <a className="reverse-color ml-lg" href="">
-                Login
-              </a>
-              <Button text="Cadastre-se" />
+      <header className="header-wrapper">
+        <div className="header-container">
+          {/* A tag <nav> não precisa de classes de layout, o CSS cuidará disso */}
+          <nav>
+            <img
+              src={Logo}
+              alt="Logo IsabelaPellegrini"
+              width={220}
+              height={80}
+            />
+            <div className="desktop-only">
+              <ul className="flex items-center gap-1.5">
+                <li>
+                  <a href="#hero">Sobre</a>
+                </li>
+                <li>
+                  <a href="#projetos">Projetos Acadêmicos</a>
+                </li>
+                <li>
+                  <a href="#habilidades">Habilidades</a>
+                </li>
+                <li>
+                  <a href="#contact">Contato</a>
+                </li>
+              </ul>
             </div>
-          </div>
-          <div className="mobile-menu">
-            {showMobileMenu ? (
-              <div className="mobile-menu-content">
-                <div className="container flex">
-                  <ul>
-                    <li>
-                      <a onClick={handleMenuClick} href="#">
-                        Home
-                      </a>
-                    </li>
-                    <li>
-                      <a onClick={handleMenuClick} href="#solution">
-                        Projetos Acadêmicos
-                      </a>
-                    </li>
-                    <li>
-                      <a onClick={handleMenuClick} href="#testimonials">
-                        Depoimentos
-                      </a>
-                    </li>
-                    <li>
-                      <a onClick={handleMenuClick} href="#pricing">
-                        Preços
-                      </a>
-                    </li>
-                    <li>
-                      <a onClick={handleMenuClick} href="#contact">
-                        Contato
-                      </a>
-                    </li>
-                  </ul>
-                  <span
-                    onClick={() => setShowMobileMenu(false)}
-                    className="btn-wrapper"
-                  >
-                    <AiOutlineClose size={24} /> {/* Ícone de fechar */}
-                  </span>
+            <div className="mobile-menu">
+              {showMobileMenu ? (
+                <div className="mobile-menu-content">
+                  <div className="container flex">
+                    <ul>
+                      <li>
+                        <a onClick={handleMenuClick} href="#hero">
+                          Home
+                        </a>
+                      </li>
+                      <li>
+                        <a onClick={handleMenuClick} href="#projetos">
+                          Projetos Acadêmicos
+                        </a>
+                      </li>
+                      <li>
+                        <a onClick={handleMenuClick} href="#habilidades">
+                          Habilidades
+                        </a>
+                      </li>
+                      <li>
+                        <a onClick={handleMenuClick} href="#contact">
+                          Contato
+                        </a>
+                      </li>
+                    </ul>
+                    <span
+                      onClick={() => setShowMobileMenu(false)}
+                      className="btn-wrapper"
+                    >
+                      <AiOutlineClose size={24} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <span
-                onClick={() => setShowMobileMenu(true)}
-                className="btn-wrapper"
-              >
-                <AiOutlineMenu size={24} /> {/* Ícone de menu */}
-              </span>
-            )}
-          </div>
-        </nav>
+              ) : (
+                <span
+                  onClick={() => setShowMobileMenu(true)}
+                  className="btn-wrapper"
+                >
+                  <AiOutlineMenu size={24} />
+                </span>
+              )}
+            </div>
+          </nav>
+        </div>
       </header>
 
       <section id="hero">
@@ -189,18 +185,12 @@ export default function Home() {
             intermediário em AutoCAD e SketchUp, e sigo evoluindo no Revit e
             outras ferramentas, buscando sempre soluções criativas e funcionais.
           </p>
-          <div className="flex gap-1">
-            <span>
-              <Button text="Cadastre-se" />
-            </span>
-            <span className="desktop-only">
-              <Button text="Veja mais" secondary />
-            </span>
-          </div>
+          <div className="flex gap-1"></div>
         </div>
       </section>
 
-      <section className="container" id="solution">
+      {/* ALTERADO: ID da seção para 'projetos' */}
+      <section className="container" id="projetos">
         <header>
           <span>
             <h2>Projetos Acadêmicos</h2>
@@ -234,183 +224,89 @@ export default function Home() {
         </section>
       </section>
 
-      <section id="testimonials">
+      <section id="habilidades">
         <header>
-          <span>
-            <p className="desktop-only">Conselho de quem conhece</p>
-            <h2>Cada cliente importa!</h2>
-          </span>
+          <h2>Habilidades e Ferramentas</h2>
           <p>
-            Quem já pediu sabe da qualidade das nossas receitas, estamos tirando
-            aquela ideia de que comida congelada tem de ser algo sem gosto,
-            acompanhe abaixo os testemunhos de quem já comprou e aprovou.
+            Domínio nas principais ferramentas do mercado para transformar
+            conceitos em projetos concretos, desde o desenho técnico detalhado
+            até a visualização 3D imersiva.
           </p>
         </header>
         <section className="carousel">
           <div className="carousel-content">
             <CarouselCard
-              image={ProfileImageOne}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconAutoCAD}
+              alt="Logo do AutoCAD"
+              testimony="Desenvolvimento de projetos técnicos precisos, incluindo plantas baixas, cortes, elevações e detalhamentos executivos, garantindo a conformidade e a clareza da documentação."
+              name="AutoCAD"
+              title="Nível: Intermediário"
             />
             <CarouselCard
-              image={ProfileImageTwo}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconSketchUp}
+              alt="Logo do SketchUp"
+              testimony="Modelagem 3D ágil para estudos de volumetria, criação de perspectivas e renderizações que dão vida às ideias e facilitam a visualização do cliente."
+              name="SketchUp"
+              title="Nível: Intermediário"
             />
             <CarouselCard
-              image={ProfileImageTree}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconRevit}
+              alt="Logo do Revit"
+              testimony="Criação de modelos inteligentes com a metodologia BIM para projetos mais integrados e eficientes. Em constante evolução para explorar todo o potencial da ferramenta."
+              name="Revit (BIM)"
+              title="Nível: Em evolução"
             />
           </div>
           <div className="carousel-content">
             <CarouselCard
-              image={ProfileImageOne}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconAutoCAD}
+              alt="Logo do AutoCAD"
+              testimony="Desenvolvimento de projetos técnicos precisos, incluindo plantas baixas, cortes, elevações e detalhamentos executivos, garantindo a conformidade e a clareza da documentação."
+              name="AutoCAD"
+              title="Nível: Intermediário"
             />
             <CarouselCard
-              image={ProfileImageTwo}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconSketchUp}
+              alt="Logo do SketchUp"
+              testimony="Modelagem 3D ágil para estudos de volumetria, criação de perspectivas e renderizações que dão vida às ideias e facilitam a visualização do cliente."
+              name="SketchUp"
+              title="Nível: Intermediário"
             />
             <CarouselCard
-              image={ProfileImageTree}
-              alt="Imagem perfil cliente"
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              rating={4}
-              name="Ellon Ma"
-              title="CEO BING CHILLING"
-              star={Star}
-              starOuter={StarOuter}
+              image={IconRevit}
+              alt="Logo do Revit"
+              testimony="Criação de modelos inteligentes com a metodologia BIM para projetos mais integrados e eficientes. Em constante evolução para explorar todo o potencial da ferramenta."
+              name="Revit (BIM)"
+              title="Nível: Em evolução"
             />
           </div>
         </section>
       </section>
 
-      <section id="pricing" className="container">
-        <header>
-          <p className="desktop-only">Planos e preços</p>
-          <h2>Nossos planos</h2>
-        </header>
-        <section className="even-columns gap-1.5">
-          <div className="pricing-card">
-            <span className="plan">
-              <h3>Básico</h3>
-              <p>Você tem direito a uma prova das comidas DonaFrost.</p>
-            </span>
-            <h2>Grátis</h2>
-            <Button text="Pedir agora" secondary key="free" />
-            <span className="hr" />
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Retire na loja</p>
-            </span>
-            <ul className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Apenas 1 por CPF</p>
-            </ul>
-          </div>
-          <div className="pricing-card premium">
-            <span className="bonus">
-              <p>1º MÊS COM DESCONTO</p>
-            </span>
-            <span className="plan">
-              <h3>Premium</h3>
-              <p>Para quem precisa de uma marmita diária, muito saborosa.</p>
-            </span>
-            <span className="price">
-              <h2>R$ 89,90</h2>
-              <p>/mês</p>
-            </span>
-            <Button text="Pedir agora" key="premium" />
-            <span className="hr" />
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>2 Entregas</p>
-            </span>
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>5 Refeições por semana</p>
-            </span>
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>2 Sucos por semana</p>
-            </span>
-          </div>
-          <div className="pricing-card">
-            <span className="plan">
-              <h3>Básico</h3>
-              <p>Você tem direito a uma prova das comidas DonaFrost.</p>
-            </span>
-            <h2>Grátis</h2>
-            <Button text="Pedir agora" secondary key="free" />
-            <span className="hr" />
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Retire na loja</p>
-            </span>
-            <ul className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Apenas 1 por CPF</p>
-            </ul>
-          </div>
-        </section>
-      </section>
+      {/* REMOVIDO: Toda a seção de preços ('pricing') que estava comentada foi deletada para limpar o código. */}
 
       <section id="contact" className="contact-section container">
         <header className="contact-header">
-          <p className="contact-subtitle">Envie sua dúvida</p>
+          <p className="contact-subtitle">Vamos conversar?</p>
           <h2 className="contact-title">Entre em contato</h2>
           <p className="contact-description">
-            Entre em contato, estamos dispostos a tirar qualquer dúvida, <br />
-            seja um orçamento, uma dúvida técnica de algum de nossos produtos.
-            <br />
-            Estamos à disposição para responder.{" "}
-            <span role="img" aria-label="emoji">
-              😎
-            </span>
+            Se você tem uma oportunidade, um projeto em mente ou simplesmente
+            quer trocar ideias sobre arquitetura, me envie uma mensagem. Terei o
+            prazer em responder.
           </p>
         </header>
-
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
             type="email"
             className="contact-input"
-            placeholder="Seu melhor Email"
+            placeholder="Seu melhor e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <textarea
             className="contact-textarea"
-            placeholder="Motivo do contato. Ex: Gostei muito do produto X, poderia me enviar um orçamento?"
+            placeholder="Escreva sua mensagem..."
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
             required
@@ -425,67 +321,48 @@ export default function Home() {
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <h3>LogoMarca</h3>
-            <div className="social-icons">
-              <FaInstagram size={20} />
-              <FaFacebookF size={20} />
-              <FaYoutube size={20} />
+            {/* ALTERADO: O <h3> foi substituído pela tag <img> com a sua logo */}
+            <img
+              src={Logo}
+              alt="Logo IsabelaPellegrini"
+              width={220}
+              height={80}
+              style={{
+                marginBottom: "0.5rem",
+              }} /* Adicionado para manter um espaçamento similar */
+            />
+            <p style={{ marginTop: "0.5rem", maxWidth: "300px" }}>
+              Estudante de Arquitetura e Urbanismo apaixonada por criar espaços
+              que inspiram.
+            </p>
+            <div className="social-icons" style={{ marginTop: "1rem" }}>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <FaInstagram size={20} />
+              </a>
             </div>
           </div>
-
           <div className="footer-column">
-            <h4>Empresa</h4>
+            <h4>Navegação</h4>
             <ul>
               <li>
-                <a href="#">Sobre nós</a>
+                <a href="#hero">Sobre</a>
               </li>
               <li>
-                <a href="#">Faça parte do time</a>
+                <a href="#projetos">Projetos</a>
               </li>
               <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>Funcionalidades</h4>
-            <ul>
-              <li>
-                <a href="#">Marketing</a>
+                <a href="#habilidades">Habilidades</a>
               </li>
               <li>
-                <a href="#">Análise de dados</a>
-              </li>
-              <li>
-                <a href="#">Boot discord</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>Recursos</h4>
-            <ul>
-              <li>
-                <a href="#">IOS & Android</a>
-              </li>
-              <li>
-                <a href="#">Teste a Demo</a>
-              </li>
-              <li>
-                <a href="#">Clientes</a>
-              </li>
-              <li>
-                <a href="#">API</a>
+                <a href="#contact">Contato</a>
               </li>
             </ul>
           </div>
         </div>
-
         <div className="footer-bottom">
           <p>
-            Feito com amor na aula de Programação Web💙 ©
-            {new Date().getFullYear()} AktieTech - Todos os direitos reservados.
+            © {new Date().getFullYear()} Isabela Pellegrini - Todos os direitos
+            reservados.
           </p>
         </div>
       </footer>

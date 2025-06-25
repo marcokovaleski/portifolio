@@ -28,15 +28,8 @@ import "../styles/hero.css";
 import "../styles/contact.css";
 import "../styles/footer.css";
 import "../styles/utility.css";
-// ALTERADO: Nomes dos arquivos CSS para maior clareza
-import "../styles/projetos.css"; // Antigo solution.css
-import "../styles/habilidades.css"; // Antigo testimonials.css
-
-// REMOVIDO: Imports não utilizados que eram da seção de preços e estrelas
-// import Star from "../assets/icn bxs-star.svg";
-// import StarOuter from "../assets/icn bx-star.svg";
-// import Check from "../assets/check.svg";
-// import "../styles/pricing.css";
+import "../styles/projetos.css";
+import "../styles/habilidades.css";
 
 export default function Home() {
   // Estados para controle do menu mobile e formulário
@@ -64,13 +57,12 @@ export default function Home() {
     setFeedback(null);
 
     try {
-      // IMPORTANTE: Veja a nota sobre segurança no final da resposta
       const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjc3NGJkODcyOWVhMzhlOWMyZmUwYzY0ZDJjYTk0OGJmNjZmMGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImM3VXhGdTYwcjJnU3RYY2J0WW9LcVEiLCJuYmYiOjE3NTA4MDc0NjcsImlhdCI6MTc1MDgwNzc2NywiZXhwIjoxNzUwODExMzY3LCJqdGkiOiI5NGZmYTY4NDE1MmQxNjYyZGFhZmEyNGM3NmJhZDBiNmE1MDA5YTkyIn0.RuyzEMutvWYlg1TZgv0gPBOzeTrqivMOweLgvDj6SglQ2EbBe80K66G3hzcsNxzKwdTKixbOS7PHFZCj8rSI0GUhQ33A9T5NPu5uDsSd0dF0a7xizy3kZt2ZEaGHj1qd1jjNWtqz7NwB7IrzwIF_vcErnhjYLBNXAtr2RWGxE6rnUr0ilqZ5mBeU-GR5PPV-epv-1qm3B4Y-sMfYIP0RRXJOXRU8V3UalBB-alqvjJwYUot6OvBrQcvglMyK309mT_U6ovg04hFAdXkQk0h1Qgvbk7-I9f_gdJEI9WT6_cq1qD3qbXHyQOxYEG7LzJugQS8E6GpBE9x4Gjtvn2M_7Q",
+            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4MjUwM2E1ZmQ1NmU5ZjczNGRmYmE1YzUwZDdiZjQ4ZGIyODRhZTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkpYMUhiSEFPdkpvc25DcC1HZWt5UlEiLCJuYmYiOjE3NTA4NjcwNzEsImlhdCI6MTc1MDg2NzM3MSwiZXhwIjoxNzUwODcwOTcxLCJqdGkiOiI5ZDg2YzViMzMyY2FhNmMzYTNlOTBkN2NhZTEyM2MzNDdhYzhiNjM2In0.AWwZsCOQYbZd-d-9sa7OHYM4MDRyMsvn8daKe55KrzHBLx9H43IlKdMNFLHvy_Vl9bgzHqWuVnNCOOorSwLY15RVAvRznqokJ4TEapyGIZ2ufY8MGijp_InIH3mA2_SSMCQ0wFAHqU2AK4rw02xXq6ejUzdoayQ62sfmwqJwb2_ExB-iRilk5_neE5eKXp_HJSf8zi6XIxyr34--iJpWt7WAJZmdhWUeUQ9YWpPC_nqjABLqvsDSuY_lAo6xFek_SXspVSSmA0rH2ygTAdczmfOR06UvFBAxBSxDonDVVgserdvw-kVJN2oFgR5t274RImCWkfak769eJ5f9OMg9sw",
         },
         body: JSON.stringify({
           toMail: email,

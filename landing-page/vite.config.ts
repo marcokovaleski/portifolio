@@ -1,10 +1,16 @@
+/**
+ * Configuração do Vite para o projeto
+ * Define plugins e configurações do servidor de desenvolvimento
+ */
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
+// Configuração principal do Vite
 export default defineConfig({
   plugins: [react()],
   server: {
+    // Configuração do proxy para API
     proxy: {
       "/api": {
         target:

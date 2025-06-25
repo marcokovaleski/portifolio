@@ -1,3 +1,8 @@
+/**
+ * Componente principal da página inicial
+ * Contém todas as seções: header, hero, projetos, habilidades, contato e footer
+ */
+
 import { useEffect, useState } from "react";
 // Componentes e Ícones
 import Button from "../components/Button";
@@ -34,12 +39,14 @@ import "../styles/habilidades.css"; // Antigo testimonials.css
 // import "../styles/pricing.css";
 
 export default function Home() {
+  // Estados para controle do menu mobile e formulário
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
 
+  // Controla o scroll da página quando menu mobile está aberto
   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {
@@ -47,8 +54,10 @@ export default function Home() {
     }
   }, [showMobileMenu]);
 
+  // Fecha o menu mobile ao clicar em um link
   const handleMenuClick = () => setShowMobileMenu(false);
 
+  // Envia o formulário de contato via API
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -61,7 +70,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjc3NGJkODcyOWVhMzhlOWMyZmUwYzY0ZDJjYTk0OGJmNjZmMGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkdoRDE3UlNCdjBKR044dkdxS0ZBSXciLCJuYmYiOjE3NTA3MjgwMjQsImlhdCI6MTc1MDcyODMyNCwiZXhwIjoxNzUwNzMxOTI0LCJqdGkiOiJlMDRlZGM1MTczNTRlMDIwYzY5NWU1YTc0MDMwMDc5ZDRmNjc0MTU0In0.oVRen9jmeRmyPjR_dQBkW52Vw2xUCfKO5yv1We1zNJyXsxi170KYxf4wWe_AFQBhDlE1UcivwgqNR4xfi8FfMTGDDd9_Kkt6OAetVP8rWAL1nAJfy_Uw4M0qQNQp4YEpoTGUZBxfR8a-647KHzO7cdSe744vRVapKRhlnPNgS0mNkJVl78SKJnMGjAEQTtUJu3CT_ch2CMKttem3rEfJ7s_Dur3w9Y7EMQsijEzXVAhSR5t1WnzXhnyF7Ugq5H5NIMLKl0hwow1mnXFD8av0rRWxctYwQa93UyU4UxwD456kWXsgkk1zIzL9-b3nV4kMxRKVci24sZVdIonzYQAF4g",
+            "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjc3NGJkODcyOWVhMzhlOWMyZmUwYzY0ZDJjYTk0OGJmNjZmMGYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE4MTA0NzA4MDU0LTlyOXMxYzRhbGczNmVybGl1Y2hvOXQ1Mm4zMm42ZGdxLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzczODMxNzU2OTM2NDU1MDg5IiwiZW1haWwiOiJtYXJjby5rb3ZhbGVza2kxOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImM3VXhGdTYwcjJnU3RYY2J0WW9LcVEiLCJuYmYiOjE3NTA4MDc0NjcsImlhdCI6MTc1MDgwNzc2NywiZXhwIjoxNzUwODExMzY3LCJqdGkiOiI5NGZmYTY4NDE1MmQxNjYyZGFhZmEyNGM3NmJhZDBiNmE1MDA5YTkyIn0.RuyzEMutvWYlg1TZgv0gPBOzeTrqivMOweLgvDj6SglQ2EbBe80K66G3hzcsNxzKwdTKixbOS7PHFZCj8rSI0GUhQ33A9T5NPu5uDsSd0dF0a7xizy3kZt2ZEaGHj1qd1jjNWtqz7NwB7IrzwIF_vcErnhjYLBNXAtr2RWGxE6rnUr0ilqZ5mBeU-GR5PPV-epv-1qm3B4Y-sMfYIP0RRXJOXRU8V3UalBB-alqvjJwYUot6OvBrQcvglMyK309mT_U6ovg04hFAdXkQk0h1Qgvbk7-I9f_gdJEI9WT6_cq1qD3qbXHyQOxYEG7LzJugQS8E6GpBE9x4Gjtvn2M_7Q",
         },
         body: JSON.stringify({
           toMail: email,
@@ -87,6 +96,7 @@ export default function Home() {
 
   return (
     <>
+      {/* Header com navegação principal */}
       <header className="header-wrapper">
         <div className="header-container">
           {/* A tag <nav> não precisa de classes de layout, o CSS cuidará disso */}
@@ -97,6 +107,7 @@ export default function Home() {
               width={220}
               height={80}
             />
+            {/* Menu desktop */}
             <div className="desktop-only">
               <ul className="flex items-center gap-1.5">
                 <li>
@@ -113,6 +124,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+            {/* Menu mobile com toggle */}
             <div className="mobile-menu">
               {showMobileMenu ? (
                 <div className="mobile-menu-content">
@@ -160,6 +172,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Seção hero com apresentação pessoal */}
       <section id="hero">
         <span className="desktop-only">
           <img src={HeroRectangleTwo} alt="Retangulo um tela inicial" />
@@ -189,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ALTERADO: ID da seção para 'projetos' */}
+      {/* Seção de projetos acadêmicos */}
       <section className="container" id="projetos">
         <header>
           <span>
@@ -224,6 +237,7 @@ export default function Home() {
         </section>
       </section>
 
+      {/* Seção de habilidades e ferramentas */}
       <section id="habilidades">
         <header>
           <h2>Habilidades e Ferramentas</h2>
@@ -283,8 +297,7 @@ export default function Home() {
         </section>
       </section>
 
-      {/* REMOVIDO: Toda a seção de preços ('pricing') que estava comentada foi deletada para limpar o código. */}
-
+      {/* Seção de contato com formulário */}
       <section id="contact" className="contact-section container">
         <header className="contact-header">
           <p className="contact-subtitle">Vamos conversar?</p>
@@ -318,6 +331,7 @@ export default function Home() {
         </form>
       </section>
 
+      {/* Footer com informações de contato e navegação */}
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand">

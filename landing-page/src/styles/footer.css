@@ -1,3 +1,9 @@
+/**
+ * Estilos para o rodapé da aplicação
+ * Layout responsivo com informações de contato e navegação
+ */
+
+/* Container principal do footer */
 .footer {
   background-color: var(--bg-color);
   border-top: 1px solid #eaeaea;
@@ -7,6 +13,7 @@
   font-size: var(--fs-sm);
 }
 
+/* Grid responsivo do footer */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -15,30 +22,32 @@
   margin-bottom: var(--py-base);
 }
 
+/* Título da marca no footer */
 .footer-brand h3 {
   font-size: var(--fs-lg);
   color: var(--text-color);
   margin-bottom: var(--py-sm);
 }
 
+/* Container dos ícones sociais */
 .social-icons {
   display: flex;
   gap: 0.75rem;
 }
 
-/* Em footer.css */
+/* Estilo dos ícones sociais */
 .social-icons svg {
-  /* Use a cor primária do seu site ou outra cor de sua preferência */
   color: var(--primary-color);
   transition: 0.3s;
   cursor: pointer;
 }
 
+/* Efeito hover dos ícones sociais */
 .social-icons svg:hover {
-  /* Pode escurecer um pouco a cor no hover, se desejar */
   filter: brightness(0.8);
 }
 
+/* Títulos das colunas do footer */
 .footer-column h4 {
   color: var(--text-color);
   font-size: var(--fs-base);
@@ -46,25 +55,30 @@
   margin-bottom: 0.5rem;
 }
 
+/* Lista de links do footer */
 .footer-column ul {
   list-style: none;
   padding: 0;
 }
 
+/* Itens da lista do footer */
 .footer-column li {
   margin-bottom: 0.5rem;
 }
 
+/* Links do footer */
 .footer-column a {
   color: var(--second-text-color);
   text-decoration: none;
   transition: 0.2s ease;
 }
 
+/* Efeito hover dos links */
 .footer-column a:hover {
   color: var(--primary-color);
 }
 
+/* Área inferior do footer */
 .footer-bottom {
   background-color: var(--light-gray);
   padding: var(--py-sm) 0;

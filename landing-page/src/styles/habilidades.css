@@ -1,3 +1,9 @@
+/**
+ * Estilos para a seção de habilidades e ferramentas
+ * Carrossel animado com cards de ferramentas
+ */
+
+/* Container principal da seção de habilidades */
 #habilidades {
   height: 100vh;
   background: var(--secondary-color);
@@ -8,6 +14,7 @@
   justify-content: center;
 }
 
+/* Cabeçalho da seção */
 #habilidades header {
   display: flex;
   text-align: center;
@@ -17,17 +24,20 @@
   align-items: center;
 }
 
+/* Título da seção */
 #habilidades header h2 {
   color: var(--text-color);
   font-weight: var(--fw-bold);
   font-size: var(--fs-lg);
 }
 
+/* Descrição da seção */
 #habilidades header p {
   color: var(--second-text-color);
   max-width: 70ch;
 }
 
+/* Container do carrossel */
 #habilidades .carousel {
   display: flex;
   width: 80%;
@@ -36,11 +46,13 @@
   margin-inline: auto;
 }
 
+/* Pausa animação no hover */
 #habilidades .carousel:hover .carousel-content {
   animation-play-state: paused;
   cursor: pointer;
 }
 
+/* Conteúdo do carrossel com animação */
 #habilidades .carousel-content {
   display: flex;
   gap: 1.5rem;
@@ -49,6 +61,7 @@
   align-items: center;
 }
 
+/* Card individual do carrossel */
 #habilidades .carousel-card {
   min-width: 12.5rem;
   background: var(--bg-color);
@@ -63,6 +76,7 @@
   height: 80%;
 }
 
+/* Imagem do card do carrossel */
 #habilidades .carousel-card > img {
   width: 130px;
   height: 130px;
@@ -70,16 +84,19 @@
   flex-shrink: 0;
 }
 
+/* Informações do nome e título */
 #habilidades .names {
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
 }
 
+/* Nome da ferramenta */
 #habilidades .names :first-child {
   color: var(--text-color);
   font-size: var(--fs-base);
 }
 
+/* Animação de deslizamento do carrossel */
 @keyframes swipe {
   0% {
     transform: translateX(0);
@@ -89,6 +106,7 @@
   }
 }
 
+/* Media query para tablets e desktop */
 @media (width >= 580px) {
   #habilidades {
     gap: 5rem;

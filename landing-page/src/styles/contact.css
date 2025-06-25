@@ -1,28 +1,34 @@
-/* Este é o conteúdo correto que deve estar no seu arquivo contact.css */
+/**
+ * Estilos para a seção de contato
+ * Layout do formulário e elementos de contato
+ */
 
+/* Container principal da seção de contato */
 .contact-section {
   padding: var(--py-xl) 0;
   text-align: center;
 }
 
+/* Cabeçalho da seção de contato */
 .contact-header {
   margin-bottom: var(--py-lg);
 }
 
+/* Subtítulo com cor de destaque */
 .contact-subtitle {
   color: var(--primary-color);
-  font-weight: var(
-    --fw-bold
-  ); /* ALTERADO: Deixa a fonte mais forte e consistente. */
+  font-weight: var(--fw-bold);
   font-size: var(--fs-sm);
 }
 
+/* Título principal da seção */
 .contact-title {
   font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
   margin-bottom: var(--py-sm);
 }
 
+/* Descrição da seção */
 .contact-description {
   color: var(--second-text-color);
   font-size: var(--fs-base);
@@ -31,6 +37,7 @@
   margin: 0 auto;
 }
 
+/* Formulário de contato */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -39,6 +46,7 @@
   margin: 0 auto;
 }
 
+/* Campos de entrada do formulário */
 .contact-input,
 .contact-textarea {
   padding: var(--py-base);
@@ -51,16 +59,19 @@
   width: 100%;
 }
 
+/* Placeholder dos campos */
 .contact-input::placeholder,
 .contact-textarea::placeholder {
   color: var(--second-text-color);
 }
 
+/* Área de texto com altura mínima */
 .contact-textarea {
   resize: none;
   min-height: 120px;
 }
 
+/* Botão do formulário centralizado */
 .contact-form button {
   width: fit-content;
   margin: 0 auto;

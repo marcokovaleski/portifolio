@@ -1,6 +1,11 @@
+/**
+ * Componente de card para o carrossel de habilidades
+ * Exibe ícone, descrição, nome e nível da ferramenta
+ */
+
 import React from "react";
 
-// Interface de props ajustada, sem as propriedades de avaliação
+// Interface para as props do card do carrossel
 interface CarouselCardProps {
   image: string;
   alt: string;

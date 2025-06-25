@@ -1,3 +1,9 @@
+/**
+ * Componente de card para exibir projetos
+ * Renderiza ícone, título e descrição do projeto
+ */
+
+// Interface para as props do card de projeto
 type ProjectCardProps = {
   icon: string;
   alt: string;

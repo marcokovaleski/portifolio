@@ -1,6 +1,9 @@
-/* Versão corrigida para o arquivo projetos.css */
+/**
+ * Estilos para a seção de projetos acadêmicos
+ * Layout dos cards de projetos com design responsivo
+ */
 
-/* ALTERADO: Todos os seletores '#solution' foram atualizados para '#projetos' */
+/* Container principal da seção de projetos */
 #projetos {
   display: flex;
   flex-direction: column;
@@ -9,6 +12,7 @@
   gap: 5.75rem;
 }
 
+/* Cabeçalho da seção de projetos */
 #projetos header {
   display: grid;
   gap: 1.5rem;
@@ -16,19 +20,23 @@
   max-width: 33rem;
 }
 
+/* Parágrafos da seção */
 #projetos p {
   color: var(--second-text-color);
 }
 
+/* Texto em destaque */
 #projetos strong {
   color: var(--primary-color);
   font-weight: var(--fw-bold);
 }
 
+/* Grid de colunas para os cards */
 #projetos .even-columns {
   gap: 2rem;
 }
 
+/* Card individual de projeto */
 .card {
   background: var(--light-gray);
   box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
@@ -41,12 +49,14 @@
   border-radius: 6px;
 }
 
+/* Container do ícone do card */
 .card span {
   display: flex;
   min-height: 8rem;
   align-items: end;
 }
 
+/* Container do conteúdo do card */
 .card div {
   height: 100%;
   gap: 1.5rem;
@@ -55,15 +65,18 @@
   justify-content: end;
 }
 
+/* Título do card */
 .card h3 {
   font-size: 1.5rem;
 }
 
+/* Descrição do card */
 .card p {
   padding-inline: 1.5rem;
   color: var(--second-text-color);
 }
 
+/* Linha decorativa do card */
 .card hr {
   height: 6px;
   background: var(--secondary-color);
@@ -71,12 +84,13 @@
   border: none;
 }
 
+/* Media query para desktop */
 @media (width > 1280px) {
   #projetos {
     padding-block: 7.5rem;
   }
 
-  /* ALTERADO: Seletor atualizado */
+  /* Título principal em desktop */
   #projetos header > span > h2 {
     font-size: var(--fs-3xl);
     color: var(--primary-color);

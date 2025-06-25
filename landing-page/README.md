@@ -1,50 +1,106 @@
-# React + TypeScript + Vite
+# Portfolio Isabela Pellegrini
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio pessoal desenvolvido em React + TypeScript + Vite para apresentar projetos acadêmicos e habilidades em arquitetura.
 
-Currently, two official plugins are available:
+## 🏗️ Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este é um portfolio responsivo desenvolvido para Isabela Pellegrini, estudante de Arquitetura e Urbanismo. O projeto apresenta:
 
-## Expanding the ESLint configuration
+- **Seção Hero**: Apresentação pessoal e profissional
+- **Projetos Acadêmicos**: Galeria de projetos desenvolvidos durante o curso
+- **Habilidades**: Carrossel interativo com ferramentas de arquitetura (AutoCAD, SketchUp, Revit)
+- **Contato**: Formulário funcional para envio de mensagens
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Tecnologias Utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- **React 19** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e dev server
+- **React Icons** - Biblioteca de ícones
+- **CSS Modules** - Estilização modular
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📦 Instalação e Execução
+
+```bash
+# Instalar dependências
+npm install
+
+# Executar em modo desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview da build
+npm run preview
+
+# Linting
+npm run lint
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🎨 Estrutura do Projeto
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Button.tsx      # Botão customizado
+│   ├── ProjectCard.tsx # Card de projeto
+│   └── CarouselCard.tsx # Card do carrossel
+├── pages/              # Páginas da aplicação
+│   └── Home.tsx        # Página principal
+├── styles/             # Arquivos CSS
+│   ├── index.css       # Estilos globais
+│   ├── header.css      # Estilos do cabeçalho
+│   ├── hero.css        # Estilos da seção hero
+│   ├── projetos.css    # Estilos dos projetos
+│   ├── habilidades.css # Estilos das habilidades
+│   ├── contact.css     # Estilos do contato
+│   ├── footer.css      # Estilos do rodapé
+│   ├── buttons.css     # Estilos dos botões
+│   └── utility.css     # Classes utilitárias
+└── assets/             # Imagens e ícones
+```
+
+## 🔧 Configurações
+
+### Vite
+
+- Proxy configurado para API de contato
+- Plugin React para Fast Refresh
+- Build otimizado para produção
+
+### TypeScript
+
+- Configuração estrita para qualidade de código
+- Separação entre configurações de app e node
+- Linting integrado com ESLint
+
+### ESLint
+
+- Regras recomendadas para React e TypeScript
+- Plugin para React Hooks
+- Plugin para React Refresh
+
+## 📱 Responsividade
+
+O projeto é totalmente responsivo com breakpoints:
+
+- **Mobile**: < 580px
+- **Tablet**: 580px - 1280px
+- **Desktop**: > 1280px
+
+## 🎯 Funcionalidades
+
+- **Menu Mobile**: Navegação hambúrguer para dispositivos móveis
+- **Carrossel Animado**: Seção de habilidades com animação contínua
+- **Formulário de Contato**: Integração com API para envio de mensagens
+- **Scroll Suave**: Navegação interna com scroll animado
+- **Design System**: Variáveis CSS para consistência visual
+
+## 🌐 Deploy
+
+O projeto está configurado para deploy em qualquer plataforma que suporte aplicações React estáticas (Vercel, Netlify, GitHub Pages, etc.).
+
+## 📄 Licença
+
+Este projeto é privado e desenvolvido especificamente para Isabela Pellegrini.

@@ -1,3 +1,9 @@
+/**
+ * Estilos para os botões da aplicação
+ * Define variantes primária e secundária com efeitos hover
+ */
+
+/* Botão primário - fundo colorido */
 .btn-primary {
   width: 100%;
   background: var(--primary-color);
@@ -11,12 +17,14 @@
   border: solid transparent 0.15rem;
 }
 
+/* Efeito hover do botão primário */
 .btn-primary:hover {
   background: transparent;
   color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
+/* Botão secundário - contorno colorido */
 .btn-secondary {
   width: 100%;
   background: transparent;
@@ -30,6 +38,7 @@
   border: solid var(--primary-color) 0.15rem;
 }
 
+/* Efeito hover do botão secundário */
 .btn-secondary:hover {
   background: var(--primary-color);
   color: var(--light-text-color);

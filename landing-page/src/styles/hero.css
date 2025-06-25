@@ -1,3 +1,9 @@
+/**
+ * Estilos para a seção hero (apresentação principal)
+ * Layout responsivo com imagens de fundo e conteúdo centralizado
+ */
+
+/* Container principal da seção hero */
 #hero {
   background: var(--light-gray);
   border-top: 0.125rem solid #e4e4e4;
@@ -5,6 +11,7 @@
   display: flex;
 }
 
+/* Imagem de fundo posicionada à direita */
 #hero > img {
   position: absolute;
   right: 0;
@@ -12,10 +19,12 @@
   padding-left: 30%;
 }
 
+/* Parágrafos com cor secundária */
 #hero p {
   color: var(--second-text-color);
 }
 
+/* Conteúdo centralizado da seção */
 #hero .content {
   z-index: 1;
   display: flex;
@@ -25,46 +34,49 @@
   gap: 1.75rem;
 }
 
+/* Container dos botões/links */
 #hero .content > div {
   width: fit-content;
   align-self: center;
   margin-bottom: 20%;
 }
 
+/* Media query para desktop - layout otimizado */
 @media (width >=1280px) {
   #hero {
     background: var(--bg-color);
     border-top: none;
 
+    /* Container da imagem adicional */
     > span {
       position: absolute;
       top: 0;
     }
 
+    /* Imagem de fundo reposicionada */
     > img {
       top: 0;
       height: 82%;
       padding-left: 55%;
     }
 
+    /* Parágrafos com largura controlada */
     .content p {
       width: 80%;
       align-self: center;
     }
 
+    /* Conteúdo com espaçamento maior */
     .content {
       gap: 2.5rem;
     }
 
+    /* Primeiro elemento com largura específica */
     .content > div :first-child {
       width: 10.625rem;
     }
 
-    .content p {
-      width: 80%;
-      align-self: center;
-    }
-
+    /* Parágrafo de destaque */
     .content p:first-of-type {
       color: var(--primary-color);
       font-weight: var(--fw-bold);

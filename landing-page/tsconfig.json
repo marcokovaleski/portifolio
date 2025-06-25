@@ -1,3 +1,7 @@
+/**
+ * Configuração TypeScript principal
+ * Referencia as configurações específicas para app e node
+ */
 {
   "files": [],
   "references": [

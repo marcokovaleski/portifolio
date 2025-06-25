@@ -1,3 +1,9 @@
+/**
+ * Classes utilitárias CSS
+ * Classes auxiliares para layout, espaçamento e responsividade
+ */
+
+/* Classes de padding vertical */
 .py-base {
   padding-block: var(--py-base);
 }
@@ -10,19 +16,23 @@
   padding-block: var(--py-xl);
 }
 
+/* Classes de padding horizontal */
 .px-lg {
   padding-inline: var(--px-lg);
 }
 
+/* Elementos visíveis apenas em desktop */
 .desktop-only {
   display: none;
 }
 
+/* Grid de colunas iguais */
 .even-columns {
   display: grid;
   gap: 1rem;
 }
 
+/* Classes de alinhamento flexbox */
 .items-center {
   align-items: center;
 }
@@ -31,6 +41,7 @@
   justify-content: space-between;
 }
 
+/* Classes de display */
 .flex {
   display: flex;
 }
@@ -39,6 +50,7 @@
   display: grid;
 }
 
+/* Classes de gap */
 .gap-1 {
   gap: 1rem;
 }
@@ -47,17 +59,20 @@
   gap: 1.5rem;
 }
 
+/* Wrapper para botões */
 .btn-wrapper {
   cursor: pointer;
   padding: 2px;
 }
 
+/* Container responsivo */
 .container {
   --max-width: 680px;
   width: min(var(--max-width), 100% - var(--px-lg) * 2);
   margin-inline: auto;
 }
 
+/* Media query para desktop */
 @media (width >=1280px) {
   .container {
     --max-width: 1050px;

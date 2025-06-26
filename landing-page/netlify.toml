@@ -1,0 +1,7 @@
+# netlify.toml
+
+# Configuração de redirecionamento (proxy) para a API
+[[redirects]]
+  from = "/api/*"
+  to = "https://lambda-function-arch-260757001308.europe-west1.run.app/:splat"
+  status = 200
